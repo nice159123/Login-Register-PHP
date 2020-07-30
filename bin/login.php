@@ -5,7 +5,7 @@
     if (
         isset($getUsername) && 
         isset($getPassword)
-        ) {
+    ) {
         try {
             include_once 'connect.php';
             $selectUser = $conn->prepare('SELECT * FROM users WHERE username = ?');
@@ -28,14 +28,15 @@
                     $_SESSION['username'] = $dataUser['username'];
                     $_SESSION['email'] = $dataUser['email'];
                     $dataUser = null;
-                    Header('Location: ../index.php');
+                    header('Location: ../home.php');
                 } else {
+                    $dataUser = null;
                     throw new Exception('รหัสผ่านไม่ถูกต้อง!');
                 }
-            }else{
+            } else {
                 throw new Exception('ไม่พบผู้ใช้งาน');
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $user->close();
             $conn->close();
             die('Error: ' . $e->getMessage());

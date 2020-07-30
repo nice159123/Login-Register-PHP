@@ -22,8 +22,8 @@
                 <div class="card-header text-center">
                     DASHBOARD
                 </div>
-                <div class="card-body">
-                    Welcome: <?= $username ?>
+                <div class="card-body d-flex justify-content-between">
+                    Welcome: <?= $username ?> <a class="btn btn-sm btn-danger" href="bin/logout.php">ออกจากระบบ</a>
                 </div>
             </div>
         </div>
